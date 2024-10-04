@@ -2,10 +2,12 @@ package app;
 
 import db.DB;
 import model.entities.Department;
+import model.entities.Seller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class App {
     public static void main(String[] args) {
@@ -13,8 +15,9 @@ public class App {
         PreparedStatement preparedStatement = null;
         String query = "SELECT * FROM seller";
 
-        Department obj = new Department(1, "books");
-        System.out.println(obj);
+        Department booksDepartment = new Department(1, "books");
+        Seller seller = new Seller(21, "Lucas", "ola@lsallum.com", LocalDate.of(1988, 7, 20), 20000.00, booksDepartment);
+        System.out.println(seller);
 
         try {
             connection = DB.getConnection();
