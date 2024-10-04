@@ -1,6 +1,7 @@
 package app;
 
 import db.DB;
+import model.entities.Department;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +12,9 @@ public class App {
         Connection connection;
         PreparedStatement preparedStatement = null;
         String query = "SELECT * FROM seller";
+
+        Department obj = new Department(1, "books");
+        System.out.println(obj);
 
         try {
             connection = DB.getConnection();
